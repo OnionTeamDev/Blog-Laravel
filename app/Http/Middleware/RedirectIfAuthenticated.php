@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class RedirectIfAuthenticated
 {
@@ -19,7 +21,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
+            return Redirect::to('dashboard');
         }
 
         return $next($request);

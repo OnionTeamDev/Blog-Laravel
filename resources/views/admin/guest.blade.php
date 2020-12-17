@@ -93,32 +93,40 @@
                                     </div>
                                 </div>
                                 <div class="row m-b-20">
-                                    <div class="col-md-6">
-                                        <button class="btn btn-facebook m-b-20 btn-block" type="button"><i
-                                                class="icofont icofont-social-facebook"></i>facebook</button>
+                                    <div class="col-md-12">
+                                        <a class="btn btn-facebook m-b-20 btn-block" href="{{ route('admin.redirect',['facebook']) }}"><i
+                                                class="icofont icofont-social-facebook"></i>Login with facebook</a>
                                     </div>
-                                    <div class="col-md-6">
-                                        <button class="btn btn-twitter m-b-20 btn-block" type="button"><i
-                                                class="icofont icofont-social-twitter"></i>twitter</button>
-                                    </div>
+                                    {{-- <div class="col-md-6">
+                                        <a class="btn btn-twitter m-b-20 btn-block" ><i
+                                                class="icofont icofont-social-twitter"></i>twitter</a>
+                                    </div> --}}
                                 </div>
                                 <p class="text-muted text-center p-b-5">Đăng nhập bằng tài khoản thông thường của bạn
                                 </p>
+                                @foreach ($errors->all() as $error)
+                                    <div class="alert alert-danger alert-dismissible fade show mt-0" role="alert">
+                                        {{$error}}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @endforeach
                                 <div class="form-group form-primary">
-                                    <input type="email" name="email" value="{{old('email')}}" class="form-control" required=""
-                                        placeholder="Nhập Email">
+                                    <input type="email" name="email" value="{{ old('email') }}" class="form-control"
+                                        placeholder="Nhập Email" required>
                                     <span class="form-bar"></span>
                                 </div>
                                 <div class="form-group form-primary">
-                                    <input type="password" name="password" class="form-control" required=""
-                                        placeholder="Nhập mật khẩu">
+                                    <input type="password" name="password" class="form-control"
+                                        placeholder="Nhập mật khẩu" required>
                                     <span class="form-bar"></span>
                                 </div>
                                 <div class="row m-t-25 text-left">
                                     <div class="col-12">
                                         <div class="checkbox-fade fade-in-primary">
-                                            <label>
-                                                <input type="checkbox" value="">
+                                            <label for="remember">
+                                                <input type="checkbox" name="remember" id="remember">
                                                 <span class="cr"><i
                                                         class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
                                                 <span class="text-inverse">Nhớ mật khẩu</span>
