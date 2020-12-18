@@ -109,7 +109,7 @@
                                             <h6>Notifications</h6>
                                             <label class="label label-danger">New</label>
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <div class="media">
                                                 <img class="d-flex align-self-center img-radius" src="..\files\assets\images\avatar-4.jpg" alt="Generic placeholder image">
                                                 <div class="media-body">
@@ -118,7 +118,7 @@
                                                     <span class="notification-time">30 minutes ago</span>
                                                 </div>
                                             </div>
-                                        </li>
+                                        </li> --}}
                                         <li>
                                             <div class="media">
                                                 <img class="d-flex align-self-center img-radius" src="..\files\assets\images\avatar-3.jpg" alt="Generic placeholder image">

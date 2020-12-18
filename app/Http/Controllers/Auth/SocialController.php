@@ -22,6 +22,7 @@ class SocialController extends Controller
             Auth::login($user, true);
             return Redirect::to('dashboard');
         }
+
         return Redirect::to('admin')->withInput();
     }
 
@@ -33,7 +34,7 @@ class SocialController extends Controller
                 'email'    => $getInfo->email,
                 'provider' => $provider,
                 'password' => bcrypt('123456'),
-                'provider_id' => $getInfo->id
+                'provider_id' => $getInfo->id,
             ]);
         }
         return $user;

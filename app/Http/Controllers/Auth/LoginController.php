@@ -7,7 +7,7 @@ use App\Http\Requests\LoginAdminRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
-class AdminController extends Controller
+class LoginController extends Controller
 {
     /*
         ** @arg

@@ -146,7 +146,7 @@
                                     </div>
                                 </div>
                                 <p class="text-inverse text-left">Bạn có đã có tài khoản ?<a
-                                        href="auth-sign-up-social.htm"> <b class="f-w-600">Đăng kí tại đây </b></a>miễn
+                                        href="{{route('admin.register')}}"> <b class="f-w-600">Đăng kí tại đây </b></a>miễn
                                     phí</p>
                             </div>
                         </div>

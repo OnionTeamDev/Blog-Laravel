@@ -86,7 +86,7 @@
                             <!-- task, page, download counter  end -->
 
                             <!--  sale analytics start -->
-                            <div class="col-xl-9 col-md-12">
+                            {{-- <div class="col-xl-9 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h5>Sales Analytics</h5>
@@ -128,7 +128,7 @@
                                     </div>
                                     <button class="btn btn-warning btn-block p-t-15 p-b-15">Download Overall Report</button>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--  sale analytics end -->
 
                             <div class="col-xl-8 col-md-12">
@@ -548,4 +548,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection
