@@ -36,7 +36,7 @@
 
 <body class="multi-step-sign-up">
     <!-- Pre-loader start -->
-    <div class="theme-loader login-block">
+    <div class="theme-loader">
         <div class="ball-scale">
             <div class='contain'>
                 <div class="ring">
@@ -90,37 +90,31 @@
             <h2 class="fs-title">Đăng Kí</h2>
             <h3 class="fs-subtitle">Hãy bắt đầu một khởi đầu mới. Đăng kí cho người mới</h3>
             <div class="input-group">
-                <input type="text" class="form-control" name="username" placeholder="Username">
+                <input type="text" class="form-control" name="email" placeholder="Email" required>
             </div>
             <div class="input-group">
-                <input type="text" class="form-control" name="email" placeholder="Email">
+                <input type="password" class="form-control" name="password" placeholder="Mật khẩu" required>
             </div>
             <div class="input-group">
-                <input type="password" class="form-control" name="pass" placeholder="Password">
+                <input type="password" class="form-control" name="cpass" placeholder="Nhập lại mật khẩu" required>
             </div>
-            <div class="input-group">
-                <input type="password" class="form-control" name="cpass" placeholder="Confirm Password">
-            </div>
-            <button type="button" name="next" class="btn btn-primary next" value="Next">Next</button>
+            <button type="button" name="next" class="btn btn-primary next" value="Next">Tiếp tục</button>
         </fieldset>
         <fieldset>
             <h2 class="fs-title">Thông tin cá nhận</h2>
             <h3 class="fs-subtitle">Thêm một số thông tin về bạn</h3>
             <div class="input-group">
-                <input type="text" class="form-control" name="fname" placeholder="First Name">
+                <input type="text" class="form-control" name="name" placeholder="Họ và tên" required>
             </div>
             <div class="input-group">
-                <input type="text" class="form-control" name="lname" placeholder="Last Name">
+                <input type="text" class="form-control" name="phone" placeholder="Số điện thoại" required>
             </div>
             <div class="input-group">
-                <input type="text" class="form-control" name="phone" placeholder="Phone">
-            </div>
-            <div class="input-group">
-                <textarea name="address" class="form-control" placeholder="Address"></textarea>
+                <textarea name="address" class="form-control" placeholder="Địa chỉ" required></textarea>
             </div>
             <button type="button" name="previous" class="btn btn-inverse btn-outline-inverse previous"
-                value="Previous">Previous</button>
-            <button type="button" name="next" class="btn btn-primary" value="submit">Submit</button>
+                value="Previous">Quay lại</button>
+            <button type="submit" name="next" class="btn btn-primary" value="submit">Tiếp tục</button>
         </fieldset>
     </form>
     <script type="text/javascript" src="{{asset('../public/backend\files\bower_components\jquery\js\jquery.min.js')}}"></script>
