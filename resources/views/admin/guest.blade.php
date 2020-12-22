@@ -112,6 +112,7 @@
                                         </button>
                                     </div>
                                 @endforeach
+                                @include('errors.note')
                                 <div class="form-group form-primary">
                                     <input type="email" name="email" value="{{ old('email') }}" class="form-control"
                                         placeholder="Nhập Email" required>

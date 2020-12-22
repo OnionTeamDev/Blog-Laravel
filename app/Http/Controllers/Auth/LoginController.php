@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginAdminRequest;
+use Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -26,6 +27,7 @@ class LoginController extends Controller
             $users = Auth::user();
             return Redirect::to('dashboard');
         }
+            Session::put('message_errors','Mật khẩu không chính xác, vui lòng thử lại!!');
             return Redirect::to('admin')->withInput();
     }
 

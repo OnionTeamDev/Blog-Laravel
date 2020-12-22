@@ -23,6 +23,7 @@ Route::group(['middleware' => 'guest','prefix' => 'admin'], function () {
     Route::get('/auth/redirect/{provider}', 'Auth\SocialController@redirect')->name('admin.redirect');
     Route::get('/callback/{provider}', 'Auth\SocialController@callback');
     Route::get('/register','Auth\RegisterController@pageRegister')->name('admin.register');
+    Route::post('/register', 'Auth\RegisterController@postRegister');
 });
 
 Route::group(['middleware' => 'auth','prefix' => 'dashboard'], function () {

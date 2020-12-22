@@ -73,8 +73,9 @@
         </div>
     </div>
     <!-- Pre-loader end -->
-    <form id="msform">
+    <form id="msform" method="POST">
         <!-- progressbar -->
+        @csrf
         <ul id="progressbar">
             <li class="active">Thiết lập tài khoản</li>
             <li>Thông tin cá nhân</li>
@@ -89,28 +90,45 @@
             {{-- <img class="logo" src="..\files\assets\images\logo-blue.png" alt="logo.png"> --}}
             <h2 class="fs-title">Đăng Kí</h2>
             <h3 class="fs-subtitle">Hãy bắt đầu một khởi đầu mới. Đăng kí cho người mới</h3>
+            @foreach ($errors->all() as $error)
+            <div class="alert alert-danger alert-dismissible fade show row p-0 m-1 mb-4" role="alert">
+                <div class="col-md-9 my-auto">
+                    {{$error}}
+                </div>
+                <button type="button" class="close col-md-2" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endforeach
+            @include('errors.note')
+            @include('success.note')
             <div class="input-group">
-                <input type="text" class="form-control" name="email" placeholder="Email" required>
+                <input type="text" class="form-control" name="email" placeholder="Email">
             </div>
             <div class="input-group">
-                <input type="password" class="form-control" name="password" placeholder="Mật khẩu" required>
+                <input type="password" class="form-control" name="password" placeholder="Mật khẩu" >
             </div>
             <div class="input-group">
-                <input type="password" class="form-control" name="cpass" placeholder="Nhập lại mật khẩu" required>
+                <input type="password" class="form-control" name="repass" placeholder="Nhập lại mật khẩu" >
             </div>
-            <button type="button" name="next" class="btn btn-primary next" value="Next">Tiếp tục</button>
+            <div class="row">
+                <button type="button" onclick="location.href='{{route('admin.login')}}'" name="previous" class="btn btn-inverse btn-outline-inverse mr-1"
+                >Quay lại đăng nhập</button>
+                <button type="button" name="next" class="btn btn-primary next" value="Next">Tiếp tục</button>
+            </div>
+
         </fieldset>
         <fieldset>
             <h2 class="fs-title">Thông tin cá nhận</h2>
             <h3 class="fs-subtitle">Thêm một số thông tin về bạn</h3>
             <div class="input-group">
-                <input type="text" class="form-control" name="name" placeholder="Họ và tên" required>
+                <input type="text" class="form-control" name="name" placeholder="Họ và tên" >
             </div>
             <div class="input-group">
-                <input type="text" class="form-control" name="phone" placeholder="Số điện thoại" required>
+                <input type="text" class="form-control" name="phone" placeholder="Số điện thoại" >
             </div>
             <div class="input-group">
-                <textarea name="address" class="form-control" placeholder="Địa chỉ" required></textarea>
+                <textarea name="address" class="form-control" placeholder="Địa chỉ" ></textarea>
             </div>
             <button type="button" name="previous" class="btn btn-inverse btn-outline-inverse previous"
                 value="Previous">Quay lại</button>

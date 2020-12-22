@@ -24,8 +24,8 @@ class LoginAdminRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required',
-            'password' => 'required'
+            'email' => 'required|max:191',
+            'password' => 'required|max:191'
         ];
     }
     public function messages()
@@ -34,6 +34,7 @@ class LoginAdminRequest extends FormRequest
             //
             'email.required' => 'Email không được để trống.',
             'password.required' => 'Mật khẩu không được để trống.',
+            'password.max' => 'Mật khẩu của quá 191 kí tự'
 
         ];
     }
