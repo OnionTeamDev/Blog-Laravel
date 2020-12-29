@@ -18,15 +18,15 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => 'guest','prefix' => 'admin'], function () {
-    Route::get('/', 'Auth\LoginController@pageLogin')->name('admin.login');
-    Route::post('/', 'Auth\LoginController@postLogin');
-    Route::get('/auth/redirect/{provider}', 'Auth\SocialController@redirect')->name('admin.redirect');
-    Route::get('/callback/{provider}', 'Auth\SocialController@callback');
-    Route::get('/register','Auth\RegisterController@pageRegister')->name('admin.register');
-    Route::post('/register', 'Auth\RegisterController@postRegister');
+        Route::get('/', 'Auth\LoginController@pageLogin')->name('admin.login');
+        Route::post('/', 'Auth\LoginController@postLogin');
+        Route::get('/auth/redirect/{provider}', 'Auth\SocialController@redirect')->name('admin.redirect');
+        Route::get('/callback/{provider}', 'Auth\SocialController@callback');
+        Route::get('/register','Auth\RegisterController@pageRegister')->name('admin.register');
+        Route::post('/register', 'Auth\RegisterController@postRegister');
 });
 
-Route::group(['middleware' => 'auth','prefix' => 'dashboard'], function () {
+Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/', 'Auth\LoginController@pageDashboard')->name('admin.dashboard');
     Route::get('/logout', 'Auth\LoginController@logout')->name('admin.logout');
 });

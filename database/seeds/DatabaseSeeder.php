@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\User;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +21,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => bcrypt('123456'),
         ]);
+        Role::create(['name' => 'Super_Admin']);
+        $user = User::where('id',1)->first();
+        $user->assignRole('Super_Admin');
     }
 }

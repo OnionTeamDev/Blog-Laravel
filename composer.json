@@ -15,7 +15,8 @@
         "laravel/framework": "^7.29",
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.5",
-        "sentry/sentry-laravel": "^2.3"
+        "sentry/sentry-laravel": "^2.3",
+        "spatie/laravel-permission": "^3.18"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
