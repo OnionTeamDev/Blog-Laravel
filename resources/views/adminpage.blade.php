@@ -10,6 +10,7 @@
     <meta name="description" content="#">
     <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
+    <link rel="stylesheet" type="text/css" href="{{asset('backend\files\assets\icon\font-awesome\css\font-awesome.min.css')}}">
     <!-- Favicon icon -->
     <link rel="icon" href="{{asset('backend\files\assets\images\favicon.ico')}}" type="image/x-icon">
     <!-- Google font-->
@@ -310,7 +311,7 @@
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Dashboard</span>
                                     </a>
-                                    <ul class="pcoded-submenu">
+                                    {{-- <ul class="pcoded-submenu">
                                         <li class="active">
                                             <a href="index-1.htm">
                                                 <span class="pcoded-mtext">Default</span>
@@ -327,44 +328,33 @@
                                                 <span class="pcoded-badge label label-info ">NEW</span>
                                             </a>
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                 </li>
                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
-                                        <span class="pcoded-mtext">Page layouts</span>
-                                        <span class="pcoded-badge label label-warning">NEW</span>
+                                        <span class="pcoded-mtext">Quản lý danh mục</span>
+                                        {{-- <span class="pcoded-badge label label-warning">NEW</span> --}}
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" pcoded-hasmenu">
                                             <a href="javascript:void(0)">
-                                                <span class="pcoded-mtext">Vertical</span>
+                                                <span class="pcoded-mtext">Danh mục bài viết</span>
                                             </a>
                                             <ul class="pcoded-submenu">
                                                 <li class=" ">
                                                     <a href="menu-static.htm">
-                                                        <span class="pcoded-mtext">Static Layout</span>
+                                                        <span class="pcoded-mtext">Tất cả danh mục</span>
                                                     </a>
                                                 </li>
                                                 <li class=" ">
-                                                    <a href="menu-header-fixed.htm">
-                                                        <span class="pcoded-mtext">Header Fixed</span>
+                                                    <a href="menu-static.htm">
+                                                        <span class="pcoded-mtext">Thêm danh mục</span>
                                                     </a>
                                                 </li>
-                                                <li class=" ">
-                                                    <a href="menu-compact.htm">
-                                                        <span class="pcoded-mtext">Compact</span>
-                                                    </a>
-                                                </li>
-                                                <li class=" ">
-                                                    <a href="menu-sidebar.htm">
-                                                        <span class="pcoded-mtext">Sidebar Fixed</span>
-                                                    </a>
-                                                </li>
-
                                             </ul>
                                         </li>
-                                        <li class=" pcoded-hasmenu">
+                                        {{-- <li class=" pcoded-hasmenu">
                                             <a href="javascript:void(0)">
                                                 <span class="pcoded-mtext">Horizontal</span>
                                             </a>
@@ -405,7 +395,7 @@
                                             <a href="menu-rtl.htm" target="_blank">
                                                 <span class="pcoded-mtext">RTL</span>
                                             </a>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </li>
                                 <li class="">
@@ -440,7 +430,7 @@
                                     </ul>
                                 </li>
                             </ul>
-                            <div class="pcoded-navigatio-lavel">UI Element</div>
+                            {{-- <div class="pcoded-navigatio-lavel">UI Element</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
@@ -1678,11 +1668,12 @@
                                         <span class="pcoded-mtext">Submit Issue</span>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> --}}
                         </div>
                     </nav>
                     {{-- content --}}
                     @yield('Dashboard')
+                    @yield('Category')
                 </div>
             </div>
         </div>

@@ -26,9 +26,17 @@ Route::group(['middleware' => 'guest','prefix' => 'admin'], function () {
         Route::post('/register', 'Auth\RegisterController@postRegister');
 });
 
-Route::group(['prefix' => 'dashboard'], function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => 'Auth'], function () {
     Route::get('/', 'Auth\LoginController@pageDashboard')->name('admin.dashboard');
     Route::get('/logout', 'Auth\LoginController@logout')->name('admin.logout');
+
+    //TODO Category
+    Route::group(['prefix' => 'category'], function (){
+        Route::get('/', 'Category\CategoryController@pageCategory')->name('admin.category');
+        Route::post('/', 'Category\CategoryController@create');
+        Route::get('/destroy/{id}', 'Category\CategoryController@destroy')->name('admin.category.destroy');
+    });
+
 });
 
 
