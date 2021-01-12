@@ -26,7 +26,7 @@ Route::group(['middleware' => 'guest','prefix' => 'admin'], function () {
         Route::post('/register', 'Auth\RegisterController@postRegister');
 });
 
-Route::group(['prefix' => 'dashboard', 'middleware' => 'Auth'], function () {
+Route::group(['middleware' => 'auth','prefix' => 'dashboard'], function () {
     Route::get('/', 'Auth\LoginController@pageDashboard')->name('admin.dashboard');
     Route::get('/logout', 'Auth\LoginController@logout')->name('admin.logout');
 
@@ -35,6 +35,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'Auth'], function () {
         Route::get('/', 'Category\CategoryController@pageCategory')->name('admin.category');
         Route::post('/', 'Category\CategoryController@create');
         Route::get('/destroy/{id}', 'Category\CategoryController@destroy')->name('admin.category.destroy');
+        Route::get('/update/{id}', 'Category\CategoryController@pageUpdateCategory')->name('admin.category.update');
+        Route::post('/update/{id}', 'Category\CategoryController@update');
+        Route::get('/statusFuture/{id}', 'Category\CategoryController@statusFuture')->name('admin.category.update.future');
+        Route::get('/statusNotFuture/{id}', 'Category\CategoryController@statusNotFuture')->name('admin.category.update.notfuture');
     });
 
 });

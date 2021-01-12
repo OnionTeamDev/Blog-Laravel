@@ -71,7 +71,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label class="col-sm-12 col-form-label">Textarea</label>
+                                                        <label class="col-sm-12 col-form-label">Mô tả</label>
                                                         <div class="col-sm-12">
                                                             <textarea required rows="5" name="category_desc" cols="5"
                                                                 class="form-control"
@@ -102,7 +102,7 @@
                                                         <tbody>
                                                             @foreach ($category as $categorys)
                                                             <tr>
-                                                                <th scope="row">1</th>
+                                                                <th scope="row">{{$categorys->id}}</th>
                                                                 <td>{{$categorys->category_name}}</td>
                                                                 <td>
                                                                     <!-- Button trigger modal -->
@@ -126,8 +126,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="modal-footer">
-                                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                                    <button type="button" class="btn btn-primary">Save</button>
+                                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -135,20 +134,19 @@
                                                                 </td>
                                                                 <td>
                                                                     @if ($categorys->category_status == 0)
-                                                                        <span style="font-size: 20px">
+                                                                        <span style="font-size: 20px" onclick="location.href='{{route('admin.category.update.future', $categorys->id)}}'">
                                                                             <i class="fa fa-star-o"></i>
                                                                         </span>
                                                                     @else
-                                                                        <span style="font-size: 20px">
+                                                                        <span style="font-size: 20px" onclick="location.href='{{route('admin.category.update.notfuture', $categorys->id)}}'">
                                                                             <i class="fa fa-star"></i>
                                                                         </span>
                                                                     @endif
                                                                 </td>
                                                                 <td>
-                                                                    <button type="button" class="btn btn-outline-success">Sửa</button>
+                                                                    <button type="button" class="btn btn-outline-success"  onclick="location.href='{{route('admin.category.update', $categorys->id)}}'">Sửa</button>
                                                                     <a onclick="return confirm('Bạn có muốn xóa danh mục này không?')" class="btn btn-danger" href="{{route('admin.category.destroy', $categorys->id)}}" role="button">Xóa</a>
                                                                 </td>
-                                                                @include('include.confirmJs')
                                                             </tr>
                                                             @endforeach
                                                         </tbody>

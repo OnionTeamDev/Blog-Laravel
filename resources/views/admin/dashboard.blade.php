@@ -131,7 +131,7 @@
                             </div> --}}
                             <!--  sale analytics end -->
 
-                            <div class="col-xl-8 col-md-12">
+                            {{-- <div class="col-xl-8 col-md-12">
                                 <div class="card table-card">
                                     <div class="card-header">
                                         <h5>Application Sales</h5>
@@ -346,7 +346,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <!-- wather user -->
                             <div class="col-xl-6 col-md-12">
@@ -488,7 +488,7 @@
                             <!-- wather user -->
 
                             <!-- social download  start -->
-                            <div class="col-xl-4 col-md-6">
+                            {{-- <div class="col-xl-4 col-md-6">
                                 <div class="card social-card bg-simple-c-blue">
                                     <div class="card-block">
                                         <div class="row align-items-center">
@@ -538,7 +538,7 @@
                                     </div>
                                     <a href="#!" class="download-icon"><i class="feather icon-arrow-down"></i></a>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- social download  end -->
                         </div>
                     </div>
