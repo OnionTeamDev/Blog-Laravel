@@ -86,7 +86,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <button type="submit" class="btn btn-outline-primary">Sửa danh
+                                                            <button onclick="return confirm('Bạn có muốn sửa danh mục này không?')" type="submit" class="btn btn-outline-primary">Sửa danh
                                                                 mục</button>
                                                             <a name="" id="" class="btn btn-danger" href="{{route('admin.category')}}" role="button"> Hủy</a>
                                                         </div>

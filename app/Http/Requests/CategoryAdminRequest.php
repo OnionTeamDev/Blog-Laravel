@@ -38,7 +38,6 @@ class CategoryAdminRequest extends FormRequest
             'category_name.bail' => 'Tên danh mục chỉ có chứa chữ cái',
             'category_status.required' => 'Nổi bật không đươc để trống',
             'category_desc.required' => 'Mô tả không được để trống',
-
         ];
 
     }

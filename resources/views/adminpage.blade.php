@@ -142,7 +142,7 @@
             </nav>
 
             <!-- Sidebar chat start -->
-            <div id="sidebar" class="users p-chat-user showChat">
+            {{-- <div id="sidebar" class="users p-chat-user showChat">
                 <div class="had-container">
                     <div class="card card_main p-fixed users-main">
                         <div class="user-box">
@@ -206,9 +206,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- Sidebar inner chat start-->
-            <div class="showChat_inner">
+            {{-- <div class="showChat_inner">
                 <div class="media chat-inner-header">
                     <a class="back_chatBox">
                         <i class="feather icon-chevron-left"></i> Josephin Doe
@@ -246,7 +246,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- Sidebar inner chat end-->
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
@@ -255,7 +255,7 @@
                             <div class="pcoded-navigatio-lavel">Navigation</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-hasmenu active pcoded-trigger">
-                                    <a href="javascript:void(0)">
+                                    <a href="{{route('admin.dashboard')}}">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Dashboard</span>
                                     </a>
@@ -281,23 +281,30 @@
                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
-                                        <span class="pcoded-mtext">Quản lý danh mục</span>
+                                        <span class="pcoded-mtext">Quản lý bài viết</span>
                                         {{-- <span class="pcoded-badge label label-warning">NEW</span> --}}
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" pcoded-hasmenu">
                                             <a href="javascript:void(0)">
-                                                <span class="pcoded-mtext">Danh mục bài viết</span>
+                                                <span class="pcoded-mtext">Danh mục</span>
                                             </a>
                                             <ul class="pcoded-submenu">
-                                                {{-- <li class=" ">
-                                                    <a href="menu-static.htm">
-                                                        <span class="pcoded-mtext">Tất cả danh mục</span>
-                                                    </a>
-                                                </li> --}}
                                                 <li class=" ">
                                                     <a href="{{route('admin.category')}}">
                                                         <span class="pcoded-mtext">Tất cả danh mục</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class=" pcoded-hasmenu">
+                                            <a href="javascript:void(0)">
+                                                <span class="pcoded-mtext">Bài viết</span>
+                                            </a>
+                                            <ul class="pcoded-submenu">
+                                                <li class=" ">
+                                                    <a href="{{route('admin.category')}}">
+                                                        <span class="pcoded-mtext">Tất cả bài viết</span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -346,7 +353,7 @@
                                         </li> --}}
                                     </ul>
                                 </li>
-                                <li class="">
+                                {{-- <li class="">
                                     <a href="navbar-light.htm">
                                         <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
                                         <span class="pcoded-mtext">Navigation</span>
@@ -376,7 +383,7 @@
                                         </li>
 
                                     </ul>
-                                </li>
+                                </li> --}}
                             </ul>
                             {{-- <div class="pcoded-navigatio-lavel">UI Element</div>
                             <ul class="pcoded-item pcoded-left-item">

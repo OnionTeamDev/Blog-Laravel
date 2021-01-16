@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth','prefix' => 'dashboard'], function () {
         Route::get('/statusNotFuture/{id}', 'Category\CategoryController@statusNotFuture')->name('admin.category.update.notfuture');
     });
 
+    //TODO Account
+    Route::post('/', 'Account\AccountController@update');
 });
 
 
