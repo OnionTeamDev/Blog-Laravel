@@ -1,5 +1,5 @@
 @extends('adminpage')
-@section('Post')
+@section('AddPost')
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
         <!-- Main-body start -->
@@ -11,7 +11,7 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>tất cả bài viết</h4>
+                                    <h4>Danh mục bài viết</h4>
                                 </div>
                             </div>
                         </div>
@@ -21,7 +21,7 @@
                                     <li class="breadcrumb-item">
                                         <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">post</a>
+                                    <li class="breadcrumb-item"><a href="#!">Category</a>
                                     </li>
                                 </ul>
                             </div>
@@ -43,7 +43,7 @@
                                     </div>
                                 </div>
                                 <div class="card-block">
-                                    <h4 class="sub-title">Tất cả bài viết</h4>
+                                    <h4 class="sub-title">Thêm bài viết</h4>
                                     @include('errors.message')
                                     <div class="row">
                                         <div class="col-md-6">
@@ -53,53 +53,62 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>ID</th>
-                                                        <th>Tên bài viết</th>
-                                                        <th>Ảnh đại diện</th>
-                                                        <th>Danh mục</th>
-                                                        <th>Nổi Bật</th>
-                                                        <th>Người đăng</th>
-                                                        <th>Hành động</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($post as $posts)
-                                                    <tr>
-                                                        <td scope="row">{{$posts->id}}</td>
-                                                        <td>{{$posts->post_name}}</td>
-                                                        <td>
-                                                            <img src="{{$posts->url_img}}" width="150px" alt="">
-                                                        </td>
-                                                        @if (count($posts->category) > 0)
-                                                            @foreach ($posts->category as $categorys)
-                                                                <td>{{$categorys->category_name}}</td>
+                                            <form method="POST">
+                                                @csrf
+                                                <div class="form-group row">
+                                                    <label class="col-sm-12  ">Tên bài viết</label>
+                                                    <div class="col-sm-12">
+                                                        <input required type="text" name="post_name"
+                                                            class="form-control" placeholder="Tên bài viết">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-12">Ảnh đại diện</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-btn">
+                                                          <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                                            <i class="fa fa-picture-o"></i> Choose
+                                                          </a>
+                                                        </span>
+                                                        <input id="thumbnail" class="form-control" type="text" name="url_img" required>
+                                                    </div>
+                                                      {{-- <img id="holder" style="margin-top:15px;max-height:100px;"> --}}
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-12 col-form-label">Danh mục</label>
+                                                    <div class="col-sm-12">
+                                                        <select name="category_id" class="form-control">
+                                                            @foreach ($category as $categorys)
+                                                             <option value="{{$categorys->id}}">{{$categorys->category_name}}</option>
                                                             @endforeach
-                                                        @else
-                                                            <td>Chưa có danh mục</td>
-                                                        @endif
-                                                        <td>
-                                                            @if ($posts->post_status == 0)
-                                                                <span style="font-size: 20px" onclick="location.href='{{route('admin.post.future', $posts->id)}}'">
-                                                                    <i class="fa fa-star-o"></i>
-                                                                </span>
-                                                            @else
-                                                                <span style="font-size: 20px" onclick="location.href='{{route('admin.post.notfuture', $posts->id)}}'">
-                                                                    <i class="fa fa-star"></i>
-                                                                </span>
-                                                            @endif
-                                                        </td>
-                                                        <td>{{$posts->name}}</td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-outline-success"  onclick="location.href='{{route('admin.post.update', $posts->id)}}'">Sửa</button>
-                                                            <a onclick="return confirm('Bạn có muốn xóa bài viết này không?')" class="btn btn-danger" href="{{route('admin.post.destroy', $posts->id)}}" role="button">Xóa</a>
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-12 col-form-label">Nổi bật</label>
+                                                    <div class="col-sm-12">
+                                                        <select name="post_status" class="form-control">
+                                                            <option value="0">Không nổi bật</option>
+                                                            <option value="1">Nổi bật</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-12 col-form-label">Mô tả</label>
+                                                    <div class="col-sm-12">
+                                                        <textarea required id="editor" rows="5" name="post_desc" cols="5"
+                                                            class="form-control"
+                                                            placeholder="Default textarea"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <button type="submit" class="btn btn-outline-primary">Lưu danh
+                                                            mục</button>
+                                                    </div>
+                                                    <div class="col-md-"></div>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -294,3 +303,4 @@
     </div>
 </div>
 @endsection
+

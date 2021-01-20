@@ -45,13 +45,16 @@ class CategoryController extends Controller
     //POST update category
     public function update(CategoryAdminRequest $request, $id){
         $category = CategoryModel::find($id);
-        $category->category_name = $request->category_name;
-        $category->category_slug = Str::slug($request->category_name);
-        $category->category_status = $request->category_status;
-        $category->category_desc = $request->category_desc;
-        $category->save();
-        Session::put('message_success', 'Sửa danh mục thành công');
-        return back();
+        if ($category != null) {
+            $category->category_name = $request->category_name;
+            $category->category_slug = Str::slug($request->category_name);
+            $category->category_status = $request->category_status;
+            $category->category_desc = $request->category_desc;
+            $category->save();
+            Session::put('message_success', 'Sửa danh mục thành công');
+            return back();
+        }
+        return response()->route('admin.category');
     }
 
     public function statusNotFuture($id) {
@@ -78,14 +81,15 @@ class CategoryController extends Controller
         Session::put('message_success', 'Thêm danh mục thành công');
         return back();
     }
+
     public function destroy($id){
-        $category = CategoryModel::destroy($id);
-        if(isset($category)){
+        $category = CategoryModel::find($id);
+        if($category != null){
+            CategoryModel::destroy($id);
             Session::put('message_success', 'Đã xóa danh mục');
-        }else{
-            Session::put('message_error', 'Đã xóa danh mục');
+            return back();
         }
-        return back();
+            return response()->route('admin.category');
     }
 
 }

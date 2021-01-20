@@ -49,6 +49,15 @@ Route::group(['middleware' => 'auth','prefix' => 'dashboard'], function () {
     //TODO Post
     Route::group(['prefix' => 'post'], function(){
         Route::get('/','Post\PostController@pageCreatePost')->name('admin.post.create');
+        Route::post('/','Post\PostController@create');
+        Route::get('/allpost','Post\PostController@pageAllPost')->name('admin.post');
+        Route::get('/allPost/{id}/future', 'Post\PostController@statusFuture')->name('admin.post.future');
+        Route::get('/allPost/{id}/Notfuture', 'Post\PostController@statusNotFuture')->name('admin.post.notfuture');
+        Route::get('/allPost/{id}/destroy', 'Post\PostController@destroy')->name('admin.post.destroy');
+        Route::get('/update/{id}', 'Post\PostController@pageUpdatePost')->name('admin.post.update');
+        Route::post('/update/{id}', 'Post\PostController@update')->name('admin.post.update');
+
+
     });
 });
 

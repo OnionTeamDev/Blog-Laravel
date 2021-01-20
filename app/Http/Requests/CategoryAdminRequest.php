@@ -25,7 +25,7 @@ class CategoryAdminRequest extends FormRequest
     {
         return [
             //
-            'category_name' => 'required|unique:category,category_name|bail',
+            'category_name' => 'required|unique:category,category_name,'.$this->segment(4).',id|bail',
             'category_status' => 'required',
             'category_desc' => 'required'
         ];

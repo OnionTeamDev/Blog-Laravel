@@ -259,38 +259,20 @@
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Dashboard</span>
                                     </a>
-                                    {{-- <ul class="pcoded-submenu">
-                                        <li class="active">
-                                            <a href="index-1.htm">
-                                                <span class="pcoded-mtext">Default</span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="dashboard-crm.htm">
-                                                <span class="pcoded-mtext">CRM</span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="dashboard-analytics.htm">
-                                                <span class="pcoded-mtext">Analytics</span>
-                                                <span class="pcoded-badge label label-info ">NEW</span>
-                                            </a>
-                                        </li>
-                                    </ul> --}}
                                 </li>
                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
                                         <span class="pcoded-mtext">Quản lý bài viết</span>
-                                        {{-- <span class="pcoded-badge label label-warning">NEW</span> --}}
+                                        <span class="pcoded-badge label label-warning">NEW</span>
                                     </a>
                                     <ul class="pcoded-submenu">
-                                        <li class=" pcoded-hasmenu">
+                                        <li class="pcoded-hasmenu">
                                             <a href="javascript:void(0)">
                                                 <span class="pcoded-mtext">Danh mục</span>
                                             </a>
                                             <ul class="pcoded-submenu">
-                                                <li class=" ">
+                                                <li class="">
                                                     <a href="{{route('admin.category')}}">
                                                         <span class="pcoded-mtext">Tất cả danh mục</span>
                                                     </a>
@@ -305,6 +287,11 @@
                                                 <li class=" ">
                                                     <a href="{{route('admin.post.create')}}">
                                                         <span class="pcoded-mtext">Thêm bài viết</span>
+                                                    </a>
+                                                </li>
+                                                <li class=" ">
+                                                    <a href="{{route('admin.post')}}">
+                                                        <span class="pcoded-mtext">Tất cả bài viết</span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -1630,7 +1617,9 @@
                     @yield('Dashboard')
                     @yield('Category')
                     @yield('UpdateCategory')
+                    @yield('AddPost')
                     @yield('Post')
+                    @yield('UpdatePost')
                 </div>
             </div>
         </div>
@@ -1673,16 +1662,15 @@
 <script src="{{asset('../vendor/unisharp/laravel-filemanager/public/js/stand-alone-button.js')}}"></script>
 <script>
     var options = {
-      filebrowserImageBrowseUrl: 'laravel-filemanager?type=Images',
-      filebrowserImageUploadUrl: 'laravel-filemanager/upload?type=Images&_token=',
-      filebrowserBrowseUrl: 'laravel-filemanager?type=Files',
-      filebrowserUploadUrl: 'laravel-filemanager/upload?type=Files&_token='
+    filebrowserImageBrowseUrl: 'laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: 'laravel-filemanager/upload?type=Images&_token=',
+    filebrowserBrowseUrl: 'laravel-filemanager?type=Files',
+    filebrowserUploadUrl: 'laravel-filemanager/upload?type=Files&_token='
     };
-  </script>
-<script>CKEDITOR.replace('editor', options);</script>
-<script>
-     $('#lfm').filemanager('image');
+    CKEDITOR.replace('editor', options);
+    $('#lfm').filemanager('image');
 </script>
+
 </body>
 
 </html>

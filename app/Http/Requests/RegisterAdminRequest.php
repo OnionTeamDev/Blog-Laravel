@@ -24,8 +24,8 @@ class RegisterAdminRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'unique:users,email|required',
-            'phone' => 'unique:users,phone|required',
+            'email' => 'unique:users,email,'.$this->segment(5).',id|required',
+            'phone' => 'unique:users,phone,'.$this->segment(5).',id|required',
             'password' => 'required',
             'name' => 'required|max:191',
             'address' => 'required|max:191'
