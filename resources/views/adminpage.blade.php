@@ -303,8 +303,8 @@
                                             </a>
                                             <ul class="pcoded-submenu">
                                                 <li class=" ">
-                                                    <a href="{{route('admin.category')}}">
-                                                        <span class="pcoded-mtext">Tất cả bài viết</span>
+                                                    <a href="{{route('admin.post.create')}}">
+                                                        <span class="pcoded-mtext">Thêm bài viết</span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -1630,12 +1630,13 @@
                     @yield('Dashboard')
                     @yield('Category')
                     @yield('UpdateCategory')
-
+                    @yield('Post')
                 </div>
             </div>
         </div>
     </div>
     <!-- Warning Section Ends -->
+
     <!-- Required Jquery -->
     <script data-cfasync="false" src="..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script>
     <script type="text/javascript" src="{{asset('backend\files\bower_components\jquery\js\jquery.min.js')}}"></script>
@@ -1667,6 +1668,20 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-23581568-13');
+</script>
+<script src="{{ asset('../vendor/ckeditor/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('../vendor/unisharp/laravel-filemanager/public/js/stand-alone-button.js')}}"></script>
+<script>
+    var options = {
+      filebrowserImageBrowseUrl: 'laravel-filemanager?type=Images',
+      filebrowserImageUploadUrl: 'laravel-filemanager/upload?type=Images&_token=',
+      filebrowserBrowseUrl: 'laravel-filemanager?type=Files',
+      filebrowserUploadUrl: 'laravel-filemanager/upload?type=Files&_token='
+    };
+  </script>
+<script>CKEDITOR.replace('editor', options);</script>
+<script>
+     $('#lfm').filemanager('image');
 </script>
 </body>
 

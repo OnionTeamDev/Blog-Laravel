@@ -27,9 +27,15 @@ Route::group(['middleware' => 'guest','prefix' => 'admin'], function () {
 });
 
 Route::group(['middleware' => 'auth','prefix' => 'dashboard'], function () {
+    //File manager
+    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
+    //TODO Dashbord
     Route::get('/', 'Auth\LoginController@pageDashboard')->name('admin.dashboard');
     Route::get('/logout', 'Auth\LoginController@logout')->name('admin.logout');
-
+    //TODO Account
+    Route::post('/', 'Account\AccountController@update');
     //TODO Category
     Route::group(['prefix' => 'category'], function (){
         Route::get('/', 'Category\CategoryController@pageCategory')->name('admin.category');
@@ -40,9 +46,10 @@ Route::group(['middleware' => 'auth','prefix' => 'dashboard'], function () {
         Route::get('/statusFuture/{id}', 'Category\CategoryController@statusFuture')->name('admin.category.update.future');
         Route::get('/statusNotFuture/{id}', 'Category\CategoryController@statusNotFuture')->name('admin.category.update.notfuture');
     });
-
-    //TODO Account
-    Route::post('/', 'Account\AccountController@update');
+    //TODO Post
+    Route::group(['prefix' => 'post'], function(){
+        Route::get('/','Post\PostController@pageCreatePost')->name('admin.post.create');
+    });
 });
 
 
