@@ -118,6 +118,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
+                                        {{ $slider->links() }}
                                     </div>
                                 </div>
                             </div>

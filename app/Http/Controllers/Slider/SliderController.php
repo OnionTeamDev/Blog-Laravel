@@ -19,7 +19,7 @@ class SliderController extends Controller
         return view('admin.SliderManager.updateSlider', $data);
     }
     public function pageAllSlider(){
-        $slider = SliderModel::all();
+        $slider = SliderModel::paginate(6);
         $data['slider'] = $slider;
         return view('admin.SliderManager.slider', $data);
     }
