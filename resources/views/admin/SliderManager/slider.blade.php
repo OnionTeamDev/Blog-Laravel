@@ -85,12 +85,12 @@
                                                             </td>
                                                             <td>
                                                                 <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelId">
+                                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelId{{$sliders->id}}">
                                                                     Mô tả
                                                                 </button>
 
                                                                 <!-- Modal -->
-                                                                <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                                                <div class="modal fade" id="modelId{{$sliders->id}}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                                                     <div class="modal-dialog" role="document">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
