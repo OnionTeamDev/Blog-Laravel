@@ -1,5 +1,5 @@
 @extends('adminpage')
-@section('AllSlider')
+@section('SearchPost')
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
         <!-- Main-body start -->
@@ -11,7 +11,7 @@
                         <div class="col-lg-8">
                             <div class="page-header-title">
                                 <div class="d-inline">
-                                    <h4>tất cả slider</h4>
+                                    <h4>tất cả bài viết</h4>
                                 </div>
                             </div>
                         </div>
@@ -21,7 +21,7 @@
                                     <li class="breadcrumb-item">
                                         <a href="index-1.htm"> <i class="feather icon-home"></i> </a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#!">slider</a>
+                                    <li class="breadcrumb-item"><a href="#!">post</a>
                                     </li>
                                 </ul>
                             </div>
@@ -37,13 +37,13 @@
                             <!-- Basic Form Inputs card start -->
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>slider</h5>
+                                    <h5>Bài viết</h5>
                                     <div class="card-header-right">
                                         <i class="icofont icofont-spinner-alt-5"></i>
                                     </div>
                                 </div>
                                 <div class="card-block">
-                                    <h4 class="sub-title">slider bài viết</h4>
+                                    <h4 class="sub-title">Tất cả bài viết</h4>
                                     @include('errors.message')
                                     <div class="row">
                                         <div class="col-md-6">
@@ -52,73 +52,58 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <h2>Kết quả tìm kiếm của: {{$keyword}}</h2>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-12">
                                             <table class="table">
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th>
-                                                        <th>Tên slider</th>
+                                                        <th>Tên bài viết</th>
                                                         <th>Ảnh đại diện</th>
+                                                        <th>Danh mục</th>
                                                         <th>Nổi Bật</th>
-                                                        <th>Mô tả</th>
+                                                        <th>Người đăng</th>
                                                         <th>Hành động</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($slider as $sliders)
-                                                        <tr>
-                                                            <td>{{$sliders->id}}</td>
-                                                            <td>{{$sliders->slider_name}}</td>
-                                                            <td>
-                                                                <img src="{{$sliders->slider_img}}" width="180px" alt="">
-                                                            </td>
-                                                            <td>
-                                                                @if ($sliders->slider_status == 0)
-                                                                <span style="font-size: 20px" onclick="location.href='{{route('admin.slider.future', $sliders->id)}}'">
+                                                    @foreach ($post as $posts)
+                                                    <tr>
+                                                        <td scope="row">{{$posts->id}}</td>
+                                                        <td>{{$posts->post_name}}</td>
+                                                        <td>
+                                                            <img src="{{$posts->url_img}}" width="150px" alt="">
+                                                        </td>
+                                                        @if (count($posts->category) > 0)
+                                                            @foreach ($posts->category as $categorys)
+                                                                <td>{{$categorys->category_name}}</td>
+                                                            @endforeach
+                                                        @else
+                                                            <td>Chưa có danh mục</td>
+                                                        @endif
+                                                        <td>
+                                                            @if ($posts->post_status == 0)
+                                                                <span style="font-size: 20px" onclick="location.href='{{route('admin.post.future', $posts->id)}}'">
                                                                     <i class="fa fa-star-o"></i>
                                                                 </span>
-                                                                @else
-                                                                    <span style="font-size: 20px" onclick="location.href='{{route('admin.slider.notfuture', $sliders->id)}}'">
-                                                                        <i class="fa fa-star"></i>
-                                                                    </span>
-                                                                @endif
-                                                            </td>
-                                                            <td>
-                                                                <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelId{{$sliders->id}}">
-                                                                    Mô tả
-                                                                </button>
-
-                                                                <!-- Modal -->
-                                                                <div class="modal fade" id="modelId{{$sliders->id}}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-                                                                    <div class="modal-dialog" role="document">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h5 class="modal-title">Mô tả</h5>
-                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                        <span aria-hidden="true">&times;</span>
-                                                                                    </button>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                                {{$sliders->slider_desc }}
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">ok</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <button type="button" class="btn btn-outline-success"  onclick="location.href='{{route('admin.slider.update', $sliders->id)}}'">Sửa</button>
-                                                            <a onclick="return confirm('Bạn có muốn xóa bài viết này không?')" class="btn btn-danger" href="{{route('admin.slider.destroy', $sliders->id)}}" role="button">Xóa</a>
-                                                            </td>
-                                                        </tr>
+                                                            @else
+                                                                <span style="font-size: 20px" onclick="location.href='{{route('admin.post.notfuture', $posts->id)}}'">
+                                                                    <i class="fa fa-star"></i>
+                                                                </span>
+                                                            @endif
+                                                        </td>
+                                                        <td>{{$posts->name}}</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-outline-success"  onclick="location.href='{{route('admin.post.update', $posts->id)}}'">Sửa</button>
+                                                            <a onclick="return confirm('Bạn có muốn xóa bài viết này không?')" class="btn btn-danger" href="{{route('admin.post.destroy', $posts->id)}}" role="button">Xóa</a>
+                                                        </td>
+                                                    </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
-                                        {{ $slider->links() }}
                                     </div>
                                 </div>
                             </div>

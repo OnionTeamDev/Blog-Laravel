@@ -85,11 +85,13 @@
                         <ul class="nav-left">
                             <li class="header-search">
                                 <div class="main-search morphsearch-search">
-                                    <div class="input-group">
-                                        <span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
-                                        <input type="text" class="form-control">
-                                        <span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
-                                    </div>
+                                    <form method="GET" action="{{route('admin.searchPost')}}">
+                                        <div class="input-group">
+                                            <span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
+                                            <input type="text" name="search_post" class="form-control">
+                                            <span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
+                                        </div>
+                                    </form>
                                 </div>
                             </li>
                             <li>
@@ -264,6 +266,7 @@
                     @yield('AddSlider')
                     @yield('AllSlider')
                     @yield('UpdateSlider')
+                    @yield('SearchPost')
                 </div>
             </div>
         </div>
