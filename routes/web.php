@@ -26,7 +26,7 @@ Route::group(['middleware' => 'guest','prefix' => 'admin'], function () {
         Route::post('/register', 'Auth\RegisterController@postRegister');
 });
 
-Route::group(['middleware' => 'auth','prefix' => 'dashboard'], function () {
+Route::group(['middleware' => ['auth','role:super_admin'],'prefix' => 'dashboard'], function () {
     //File manager
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
