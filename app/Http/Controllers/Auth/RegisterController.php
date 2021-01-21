@@ -25,6 +25,7 @@ class RegisterController extends Controller
                 'address' => $request->address,
                 'password' => bcrypt($request->password),
             ]);
+            $user->assignRole('guest');
             Session::put('message_success', 'Đăng kí thành công, xin cảm ơn !!');
             return redirect()->back();
         } else {

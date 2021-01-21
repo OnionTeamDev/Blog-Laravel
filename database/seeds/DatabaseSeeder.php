@@ -21,8 +21,10 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => bcrypt('123456'),
         ]);
-        Role::create(['name' => 'Super_Admin']);
+        Role::create(['name' => 'super_admin']);
+        Role::create(['name' => 'guest']);
+
         $user = User::where('id',1)->first();
-        $user->assignRole('Super_Admin');
+        $user->assignRole('super_admin');
     }
 }

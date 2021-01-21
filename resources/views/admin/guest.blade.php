@@ -104,14 +104,8 @@
                                 </div>
                                 <p class="text-muted text-center p-b-5">Đăng nhập bằng tài khoản thông thường của bạn
                                 </p>
-                                @foreach ($errors->all() as $error)
-                                    <div class="alert alert-danger alert-dismissible fade show mt-0" role="alert">
-                                        {{$error}}
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                @endforeach
+                                @include('errors.message')
+                                @include('success.note')
                                 @include('errors.note')
                                 <div class="form-group form-primary">
                                     <input type="email" name="email" value="{{ old('email') }}" class="form-control"
