@@ -31,6 +31,8 @@ Route::group(['middleware' => 'auth','prefix' => 'dashboard'], function () {
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
+    //TODO Search
+    Route::get('/searchpost','Search\SearchPostController@searchPost')->name('admin.searchPost');
     //TODO Dashbord
     Route::get('/', 'Auth\LoginController@pageDashboard')->name('admin.dashboard');
     Route::get('/logout', 'Auth\LoginController@logout')->name('admin.logout');
@@ -66,7 +68,7 @@ Route::group(['middleware' => 'auth','prefix' => 'dashboard'], function () {
         Route::get('/allslider/{id}/Notfuture', 'Slider\SliderController@statusNotFuture')->name('admin.slider.notfuture');
         Route::get('/allslider/{id}/destroy', 'Slider\SliderController@destroy')->name('admin.slider.destroy');
         Route::get('/update/{id}', 'Slider\SliderController@pageUpdateSlider')->name('admin.slider.update');
-        Route::post('/update/{id}', 'Slider\SliderController@update')->name('admin.post.update');
+        Route::post('/update/{id}', 'Slider\SliderController@update');
     });
 });
 
