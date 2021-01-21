@@ -56,8 +56,17 @@ Route::group(['middleware' => 'auth','prefix' => 'dashboard'], function () {
         Route::get('/allPost/{id}/destroy', 'Post\PostController@destroy')->name('admin.post.destroy');
         Route::get('/update/{id}', 'Post\PostController@pageUpdatePost')->name('admin.post.update');
         Route::post('/update/{id}', 'Post\PostController@update')->name('admin.post.update');
-
-
+    });
+    //TODO slider
+    Route::group(['prefix' => 'slider'], function(){
+        Route::get('/','Slider\SliderController@pageAddSlider')->name('admin.slider.create');
+        Route::post('/','Slider\SliderController@create');
+        Route::get('/allslider','Slider\SliderController@pageAllSlider')->name('admin.slider');
+        Route::get('/allsilder/{id}/future', 'Slider\SliderController@statusFuture')->name('admin.slider.future');
+        Route::get('/allslider/{id}/Notfuture', 'Slider\SliderController@statusNotFuture')->name('admin.slider.notfuture');
+        Route::get('/allslider/{id}/destroy', 'Slider\SliderController@destroy')->name('admin.slider.destroy');
+        Route::get('/update/{id}', 'Slider\SliderController@pageUpdateSlider')->name('admin.slider.update');
+        Route::post('/update/{id}', 'Slider\SliderController@update')->name('admin.post.update');
     });
 });
 
