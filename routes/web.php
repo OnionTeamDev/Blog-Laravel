@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\ThanksContact;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'Home\HomeController@pageIndex')->name('index');
+Route::post('/', 'Home\HomeController@sendContact');
+Route::group(['prefix' => 'pagedetail'], function(){
+    Route::get('/{slug}','Home\HomeController@pageDetail')->name('pageDetail');
+});
+
+Route::get('/mail', function(){
+    return new ThanksContact();
 });
 
 Route::group(['middleware' => 'guest','prefix' => 'admin'], function () {

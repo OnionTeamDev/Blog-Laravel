@@ -31,6 +31,7 @@ class PostController extends Controller
     //TODO page update post
     public function pageUpdatePost($id){
         $post = PostModel::with('category')
+                ->where('id', $id)
                 ->select('post.*')
                 ->first();
         $category = CategoryModel::all();
@@ -40,6 +41,7 @@ class PostController extends Controller
     }
     //TODO POST update
     public function update(PostAdminRequest $request, $id){
+
         $category = CategoryModel::find($request->category_id);
         if($category != null && $request->post_status == 1 || $request->post_status == 0) {
             $post = PostModel::find($id);
