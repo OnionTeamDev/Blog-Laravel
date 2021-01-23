@@ -103,7 +103,7 @@
                                                             @foreach ($category as $categorys)
                                                             <tr>
                                                                 <th scope="row">{{$categorys->id}}</th>
-                                                                <td>{{$categorys->category_name}}</td>
+                                                                <td>{{ Str::words($categorys->category_name, 4,'....') }}</td>
                                                                 <td>
                                                                     <!-- Button trigger modal -->
                                                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelId{{$categorys->id}}">

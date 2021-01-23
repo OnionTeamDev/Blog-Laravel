@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\CategoryModel;
+use App\PostModel;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -26,5 +28,17 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Schema::defaultStringLength(191);
+
+        $data['categoryNav'] = CategoryModel::where('category_status', 1)
+                                            ->orderByDesc('created_at')
+                                            ->limit(5)
+                                            ->get();
+        $data['postNav'] = PostModel::where('post_status', 1)
+                                            ->orderByDesc('created_at')
+                                            ->limit(5)
+                                            ->get();
+
+        view()->share($data);
+
     }
 }

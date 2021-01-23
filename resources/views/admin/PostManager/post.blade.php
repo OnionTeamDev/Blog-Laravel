@@ -69,7 +69,7 @@
                                                     @foreach ($post as $posts)
                                                     <tr>
                                                         <td scope="row">{{$posts->id}}</td>
-                                                        <td>{{$posts->post_name}}</td>
+                                                        <td>{{ Str::words($posts->post_name, 4,'...') }}</td>
                                                         <td>
                                                             <img src="{{$posts->url_img}}" width="150px" alt="">
                                                         </td>

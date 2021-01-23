@@ -18,7 +18,7 @@ class CreatePostTable extends Migration
             $table->string('post_name')->unique();
             $table->string('post_slug')->unique();
             $table->string('url_img');
-            $table->string('post_desc');
+            $table->text('post_desc');
             $table->integer('post_status');
             $table->integer('user_id')->unsigned();
 
