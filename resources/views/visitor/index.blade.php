@@ -18,9 +18,14 @@
                                         <i class="bx bx-receipt"></i>
                                         <h4><a href="{{route('pageDetail', $postNews->post_slug)}}">{{ Str::words($postNews->post_name, 5,'....') }}</a></h4>
                                         <p>{!! Str::words($postNews->post_desc, 10,'....') !!}</p>
+                                        <div class="row">
+                                            <div class="col-md-5"></div>
+                                            <div class="col-md-5 mt-3">
+                                                <button type="button" onclick="location.href='{{route('pageDetail', $postNews->post_slug)}}'" class="btn btn-success">Đọc tiếp</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 @endforeach
-
                             </div>
                         </div><!-- End .content-->
                     </div>
@@ -40,7 +45,7 @@
                 </div>
                 <div class="col-md-12 mx-auto">
                     <b>
-                        {{$categorys->category_name}}
+                        <a href="{{route('postCategory',$categorys->category_slug)}}">{{$categorys->category_name}}</a>
                     </b>
                 </div>
             </div>
@@ -77,7 +82,13 @@
                             <b>{{$categoryPost->category_name}}</b>
                         @endforeach
                     </p>
-                    <p class="card-text">{!! Str::words($posts->post_desc, 10,'....') !!}</p>
+                    <p class="card-text">{!! Str::words($posts->post_desc, 15,'....') !!}</p>
+                    <div class="row">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <button type="button" onclick="location.href='{{route('pageDetail', $posts->post_slug)}}'" class="btn btn-primary">Đọc tiếp</button>
+                        </div>
+                    </div>
                 </div>
                 </div>
             </div>
@@ -599,8 +610,8 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-down">
-          <span>Contact Us</span>
-          <h2>Contact Us</h2>
+          <span>Liên Hệ</span>
+          <h2>Liên Hệ</h2>
         </div>
 
         <div class="row justify-content-center">

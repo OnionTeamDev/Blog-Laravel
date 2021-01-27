@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\CategoryModel;
-use App\PostModel;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\CategoryModel;
+use App\PostModel;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -39,6 +39,5 @@ class AppServiceProvider extends ServiceProvider
                                             ->get();
 
         view()->share($data);
-
     }
 }

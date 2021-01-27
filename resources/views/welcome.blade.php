@@ -37,12 +37,19 @@
 
 <body>
   <div class="wrap">
+    <section id="hero">
+        <div class="hero-container" data-aos="fade-up">
+          <h1>Hãy cùng chúng tôi khám phá những điều thú vị</h1>
+          <h2>Chúng ta luôn là một</h2>
+          <a href="#about" class="btn-get-started scrollto">Bắt đầu nào</a>
+        </div>
+    </section><!-- End Hero -->
     <!-- ======= Header ======= -->
     <header id="header" class="d-flex align-items-center">
       <div class="container d-flex align-items-center">
 
         <div class="logo mr-auto">
-          <h1 class="text-light"><a href="index.html"><span>Plato</span></a></h1>
+          <h1 class="text-light"><a href="{{route('index')}}"><span>Plato</span></a></h1>
           <!-- Uncomment below if you prefer to use an image logo -->
           <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
@@ -53,12 +60,11 @@
             <li class="drop-down"><a href="">Danh mục</a>
               <ul>
                 @foreach ($categoryNav as $categoryNavs)
-                <li><a href="#">{{$categoryNavs->category_name}}</a></li>
+                <li><a href="{{route('postCategory', $categoryNavs->category_slug)}}">{{$categoryNavs->category_name}}</a></li>
                 @endforeach
               </ul>
             </li>
-            <li><a href="#contact">Contact</a></li>
-
+            <li><a href="#contact">Liên hệ</a></li>
           </ul>
         </nav><!-- .nav-menu -->
 
@@ -67,6 +73,7 @@
 
     @yield('index')
     @yield('pageDetail')
+    @yield('PostCategory')
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -104,7 +111,7 @@
               <h4>Danh mục nổi bật</h4>
               <ul>
                   @foreach ($categoryNav as $categoryNavs)
-                    <li><i class="bx bx-chevron-right"></i> <a href="#">{{$categoryNavs->category_name}}</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="{{route('postCategory', $categoryNavs->category_slug)}}">{{$categoryNavs->category_name}}</a></li>
                   @endforeach
               </ul>
             </div>

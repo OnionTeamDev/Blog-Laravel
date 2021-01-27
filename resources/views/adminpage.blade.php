@@ -2,26 +2,29 @@
 <html lang="en">
 
 <head>
-    <title>Admin - Blog </title>
+    <title>Trang quản lý - ADMIN</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="#">
-    <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="keywords"
+        content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
-    <link rel="stylesheet" type="text/css" href="{{asset('backend\files\assets\icon\font-awesome\css\font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('backend\files\assets\icon\font-awesome\css\font-awesome.min.css') }}">
     <!-- Favicon icon -->
-    <link rel="icon" href="{{asset('backend\files\assets\images\favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('backend\files\assets\images\favicon.ico') }}" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css" href="{{asset('backend\files\bower_components\bootstrap\css\bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('backend\files\bower_components\bootstrap\css\bootstrap.min.css') }}">
     <!-- feather Awesome -->
-    <link rel="stylesheet" type="text/css" href="{{asset('backend\files\assets\icon\feather\css\feather.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend\files\assets\icon\feather\css\feather.css') }}">
     <!-- Style.css -->
-    <link rel="stylesheet" type="text/css" href="{{asset('backend\files\assets\css\style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('backend\files\assets\css\jquery.mCustomScrollbar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend\files\assets\css\style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend\files\assets\css\jquery.mCustomScrollbar.css') }}">
 </head>
 
 <body>
@@ -73,8 +76,9 @@
                         <a class="mobile-menu" id="mobile-collapse" href="#!">
                             <i class="feather icon-menu"></i>
                         </a>
-                        <a href="{{route('admin.dashboard')}}">
-                            <img class="img-fluid" src="{{asset('backend\files\assets\images\logo.png')}}" alt="Theme-Logo">
+                        <a href="{{ route('admin.dashboard') }}">
+                            <img class="img-fluid" src="{{ asset('backend\files\assets\images\logo.png') }}"
+                                alt="Theme-Logo">
                         </a>
                         <a class="mobile-options">
                             <i class="feather icon-more-horizontal"></i>
@@ -85,11 +89,13 @@
                         <ul class="nav-left">
                             <li class="header-search">
                                 <div class="main-search morphsearch-search">
-                                    <form method="GET" action="{{route('admin.searchPost')}}">
+                                    <form method="GET" action="{{ route('admin.searchPost') }}">
                                         <div class="input-group">
-                                            <span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
+                                            <span class="input-group-addon search-close"><i
+                                                    class="feather icon-x"></i></span>
                                             <input type="text" name="search_post" class="form-control">
-                                            <span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
+                                            <span class="input-group-addon search-btn"><i
+                                                    class="feather icon-search"></i></span>
                                         </div>
                                     </form>
                                 </div>
@@ -104,11 +110,14 @@
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        {{-- <img src="..\files\assets\images\avatar-4.jpg" class="img-radius" alt="User-Profile-Image"> --}}
-                                        <span>{{Auth::user()->name}}</span>
+                                        {{-- <img
+                                            src="..\files\assets\images\avatar-4.jpg" class="img-radius"
+                                            alt="User-Profile-Image"> --}}
+                                        <span>{{ Auth::user()->name }}</span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
-                                    <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                    <ul class="show-notification profile-notification dropdown-menu"
+                                        data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                                         {{-- <li>
                                             <a href="#!">
                                                 <i class="feather icon-settings"></i> Settings
@@ -130,7 +139,7 @@
                                             </a>
                                         </li> --}}
                                         <li>
-                                            <a href="{{route('admin.logout')}}">
+                                            <a href="{{ route('admin.logout') }}">
                                                 <i class="feather icon-log-out"></i> Logout
                                             </a>
                                         </li>
@@ -149,7 +158,7 @@
                             <div class="pcoded-navigatio-lavel">Navigation</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-hasmenu active pcoded-trigger">
-                                    <a href="{{route('admin.dashboard')}}">
+                                    <a href="{{ route('admin.dashboard') }}">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Dashboard</span>
                                     </a>
@@ -158,7 +167,7 @@
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
                                         <span class="pcoded-mtext">Quản lý bài viết</span>
-                                        <span class="pcoded-badge label label-warning">NEW</span>
+                                        {{-- <span class="pcoded-badge label label-warning">NEW</span> --}}
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class="pcoded-hasmenu">
@@ -167,7 +176,7 @@
                                             </a>
                                             <ul class="pcoded-submenu">
                                                 <li class="">
-                                                    <a href="{{route('admin.category')}}">
+                                                    <a href="{{ route('admin.category') }}">
                                                         <span class="pcoded-mtext">Tất cả danh mục</span>
                                                     </a>
                                                 </li>
@@ -179,12 +188,12 @@
                                             </a>
                                             <ul class="pcoded-submenu">
                                                 <li class=" ">
-                                                    <a href="{{route('admin.post.create')}}">
+                                                    <a href="{{ route('admin.post.create') }}">
                                                         <span class="pcoded-mtext">Thêm bài viết</span>
                                                     </a>
                                                 </li>
                                                 <li class=" ">
-                                                    <a href="{{route('admin.post')}}">
+                                                    <a href="{{ route('admin.post') }}">
                                                         <span class="pcoded-mtext">Tất cả bài viết</span>
                                                     </a>
                                                 </li>
@@ -238,16 +247,18 @@
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
                                         <span class="pcoded-mtext">Quản lý slider</span>
-                                        {{-- <span class="pcoded-badge label label-danger"></span> --}}
+                                        {{-- <span
+                                            class="pcoded-badge label label-danger"></span>
+                                        --}}
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="{{route('admin.slider.create')}}">
+                                            <a href="{{ route('admin.slider.create') }}">
                                                 <span class="pcoded-mtext">Thêm slider</span>
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="{{route('admin.slider')}}">
+                                            <a href="{{ route('admin.slider') }}">
                                                 <span class="pcoded-mtext">Tất cả slider</span>
                                             </a>
                                         </li>
@@ -275,48 +286,59 @@
 
     <!-- Required Jquery -->
     <script data-cfasync="false" src="..\..\..\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js"></script>
-    <script type="text/javascript" src="{{asset('backend\files\bower_components\jquery\js\jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('backend\files\bower_components\jquery-ui\js\jquery-ui.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('backend\files\bower_components\popper.js\js\popper.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('backend\files\bower_components\bootstrap\js\bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('backend\files\bower_components\jquery\js\jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('backend\files\bower_components\jquery-ui\js\jquery-ui.min.js') }}">
+    </script>
+    <script type="text/javascript" src="{{ asset('backend\files\bower_components\popper.js\js\popper.min.js') }}">
+    </script>
+    <script type="text/javascript" src="{{ asset('backend\files\bower_components\bootstrap\js\bootstrap.min.js') }}">
+    </script>
     <!-- jquery slimscroll js -->
-    <script type="text/javascript" src="{{asset('backend\files\bower_components\jquery-slimscroll\js\jquery.slimscroll.js')}}"></script>
+    <script type="text/javascript"
+        src="{{ asset('backend\files\bower_components\jquery-slimscroll\js\jquery.slimscroll.js') }}"></script>
     <!-- modernizr js -->
-    <script type="text/javascript" src="{{asset('backend\files\bower_components\modernizr\js\modernizr.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('backend\files\bower_components\modernizr\js\modernizr.js') }}">
+    </script>
     <!-- Chart js -->
-    <script type="text/javascript" src="{{asset('backend\files\bower_components\chart.js\js\Chart.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('backend\files\bower_components\chart.js\js\Chart.js') }}"></script>
     <!-- amchart js -->
-    <script src="{{asset('backend\files\assets\pages\widget\amchart\amcharts.js')}}"></script>
-    <script src="{{asset('backend\files\assets\pages\widget\amchart\serial.js')}}"></script>
-    <script src="{{asset('backend\files\assets\pages\widget\amchart\light.js')}}"></script>
-    <script src="{{asset('backend\files\assets\js\jquery.mCustomScrollbar.concat.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('backend\files\assets\js\SmoothScroll.js')}}"></script>
-    <script src="{{asset('backend\files\assets\js\pcoded.min.js')}}"></script>
+    <script src="{{ asset('backend\files\assets\pages\widget\amchart\amcharts.js') }}"></script>
+    <script src="{{ asset('backend\files\assets\pages\widget\amchart\serial.js') }}"></script>
+    <script src="{{ asset('backend\files\assets\pages\widget\amchart\light.js') }}"></script>
+    <script src="{{ asset('backend\files\assets\js\jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('backend\files\assets\js\SmoothScroll.js') }}"></script>
+    <script src="{{ asset('backend\files\assets\js\pcoded.min.js') }}"></script>
     <!-- custom js -->
-    <script src="{{asset('backend\files\assets\js\vartical-layout.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('backend\files\assets\pages\dashboard\custom-dashboard.js')}}"></script>
-    <script type="text/javascript" src="{{asset('backend\files\assets\js\script.min.js')}}"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script src="{{ asset('backend\files\assets\js\vartical-layout.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('backend\files\assets\pages\dashboard\custom-dashboard.js') }}">
+    </script>
+    <script type="text/javascript" src="{{ asset('backend\files\assets\js\script.min.js') }}"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-23581568-13');
-</script>
-<script src="{{ asset('../vendor/ckeditor/ckeditor/ckeditor.js')}}"></script>
-<script src="{{asset('../vendor/unisharp/laravel-filemanager/public/js/stand-alone-button.js')}}"></script>
-<script>
-    var options = {
-    filebrowserImageBrowseUrl: 'laravel-filemanager?type=Images',
-    filebrowserImageUploadUrl: 'laravel-filemanager/upload?type=Images&_token=',
-    filebrowserBrowseUrl: 'laravel-filemanager?type=Files',
-    filebrowserUploadUrl: 'laravel-filemanager/upload?type=Files&_token='
-    };
-    CKEDITOR.replace('editor', options);
-    $('#lfm').filemanager('image');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+
+    </script>
+    <script src="{{ asset('../vendor/ckeditor/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('../vendor/unisharp/laravel-filemanager/public/js/stand-alone-button.js') }}"></script>
+    <script>
+        var options = {
+            filebrowserImageBrowseUrl: 'laravel-filemanager?type=Images',
+            filebrowserImageUploadUrl: 'laravel-filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: 'laravel-filemanager?type=Files',
+            filebrowserUploadUrl: 'laravel-filemanager/upload?type=Files&_token='
+        };
+        CKEDITOR.replace('editor', options);
+        $('#lfm').filemanager('image');
+
+    </script>
 
 </body>
 
