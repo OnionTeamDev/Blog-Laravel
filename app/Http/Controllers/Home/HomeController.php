@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Home;
 
 use App\CategoryModel;
+use App\Events\NewSendMailContactEvent;
 use App\Http\Controllers\Controller;
+use App\Jobs\SendEmailJob;
 use App\Mail\ThanksContact;
 use App\PostModel;
 use App\SliderModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -45,18 +48,26 @@ class HomeController extends Controller
         }
          return redirect()->route('index');
     }
+
     public function sendContact(Request $request){
         $mail = $request->email;
         $data['mail'] = $mail;
-        // Mail::to($mail)
-        //     ->cc('minhho.technology@gmail.com', 'Minh Hồ')
-        //     ->send(new ThanksContact());
-        Mail::send('contactMail', $data, function ($message) use ($mail) {
-            $message->from('minho.technology@gmail.com', 'OnionTeam');
-            $message->to($mail);
-            $message->cc('minhho.technology@gmail.com', 'Minh Hồ');
-            $message->subject('Cảm ơn bạn đã đăng kí nhân thư thông báo từ chúng tôi');
-        });
-       return back();
+        // $job = (new SendEmailJob($data, $mail))->delay(Carbon::now()->addSeconds(10));
+        // dispatch($job);
+        event(new NewSendMailContactEvent($data, $mail));
+        return back();
+    }
+
+    public function PostCategory($slug) {
+        $data['keywordCategory'] = $slug;
+        $data['post'] = PostModel::with('category')
+                                ->whereHas('category', function($query) use ($slug) {
+                                    $query->where('category_slug', $slug);
+                                })
+                                ->join('users','user_id', '=', 'users.id')
+                                ->select('users.name', 'post.*')
+                                ->orderByDesc('created_at')
+                                ->paginate(15);
+        return view('visitor.postCategory', $data);
     }
 }
