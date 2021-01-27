@@ -7,10 +7,11 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Page Detail</h2>
+          <h2>Bài Viết</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Page Detail</li>
+            <li><a href="{{route('index')}}">Trang chủ</a></li>
+            <li>PageDetail</li>
+            <li><a href="{{route('pageDetail', $post->post_slug)}}">{{$post->post_slug}}</a></li>
           </ol>
         </div>
 
@@ -24,10 +25,10 @@
         <div class="portfolio-details-container">
 
           <div class="owl-carousel portfolio-details-carousel">
-            <img src="{{$post->url_img}}" class="img-fluid" alt="">
+            <img src="{{$post->url_img}}" style="height: 400px" class="img-fluid" alt="">
           </div>
 
-          <div class="portfolio-info">
+          <div class="portfolio-info" style="border-radius: 10px">
             <h3>Thông tin bài viết</h3>
             <ul>
               <li><strong>Danh Mục</strong>:

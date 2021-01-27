@@ -19,6 +19,9 @@ Route::post('/', 'Home\HomeController@sendContact');
 Route::group(['prefix' => 'pagedetail'], function(){
     Route::get('/{slug}','Home\HomeController@pageDetail')->name('pageDetail');
 });
+Route::group(['prefix' => 'category'], function() {
+    Route::get('/{slug}', 'Home\HomeController@PostCategory')->name('postCategory');
+});
 
 Route::get('/mail', function(){
     return new ThanksContact();
